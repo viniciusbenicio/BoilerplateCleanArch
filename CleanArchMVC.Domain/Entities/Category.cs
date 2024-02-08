@@ -27,7 +27,7 @@ namespace CleanArchMVC.Domain.Entities
 
         private void ValidationDomain(string name)
         {
-            DomainExceptionValidation.When(string.IsNullOrEmpty(name), $"Invalid {name}.Name is Required");
+            DomainExceptionValidation.When(string.IsNullOrEmpty(name), "Invalid name.Name is Required");
             DomainExceptionValidation.When(name.Length < 3, $"Invalid name, too short, minumum 3 Caracteres");
 
             name = Name;
