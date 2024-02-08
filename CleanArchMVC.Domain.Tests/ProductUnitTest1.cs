@@ -47,7 +47,13 @@ namespace CleanArchMVC.Domain.Tests
             action.Should()
                   .NotThrow<CleanArchMVC.Domain.Validation.DomainExceptionValidation>();
         }
-
+        [Fact]
+        public void CreateProduct_WithNullImageName_NoNullReferenceException()
+        {
+            Action action = () => new Product(1, "Procut Name", "Product Description", 9.99m, 99, null);
+            action.Should()
+                  .NotThrow<NullReferenceException>();
+        }
         [Fact]
         public void CreateProduct_WithEmptyImageName_NoDomainExcpetion()
         {
@@ -70,7 +76,7 @@ namespace CleanArchMVC.Domain.Tests
         [InlineData(-99.9)]
         public void CreateProduct_InvalidPriceValue_ExecptionDomainNegativeValue(int value)
         {
-            Action action = () => new Product(1, "Prorduct Name", "Product Description", value, 1 , "product image");
+            Action action = () => new Product(1, "Prorduct Name", "Product Description", value, 1, "product image");
             action.Should()
                   .Throw<CleanArchMVC.Domain.Validation.DomainExceptionValidation>()
                   .WithMessage("Invalid price value");
