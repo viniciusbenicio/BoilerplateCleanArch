@@ -36,10 +36,12 @@ namespace CleanArchMVC.Infra.Data.Migrations
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
 
-                migrationBuilder.Sql("INSERT INTO Products (Name,Description,Price,Stock,Image,CategoryId) VALUES ('Caderno espiral','Caderno espiral 100 folhas',7.45,50,'caderno1.jpg',1");
-                migrationBuilder.Sql("INSERT INTO Products (Name,Description,Price,Stock,Image,CategoryId) VALUES ('Estojo escolar','Estojo escolar cinza',6.65,70,'estojo1.jpg',1");
-                migrationBuilder.Sql("INSERT INTO Products (Name,Description,Price,Stock,Image,CategoryId) VALUES ('Borracha escolar','Borracha branca pequena',3.25,80,'borracha1.jpg',1");
-                migrationBuilder.Sql("INSERT INTO Products (Name,Description,Price,Stock,Image,CategoryId) VALUES ('Calculadora simples','Calculadora simples',15.39,20,'calculadora1.jpg',2");
+
+            migrationBuilder.Sql("INSERT INTO Products (Name,Description,Price,Stock,Image,CategoryId) VALUES ('Caderno espiral','Caderno espiral 100 folhas',7.45,50,'caderno1.jpg',1)");
+            migrationBuilder.Sql("INSERT INTO Products (Name,Description,Price,Stock,Image,CategoryId) VALUES ('Estojo escolar','Estojo escolar cinza',6.65,70,'estojo1.jpg',1)");
+            migrationBuilder.Sql("INSERT INTO Products (Name,Description,Price,Stock,Image,CategoryId) VALUES ('Borracha escolar','Borracha branca pequena',3.25,80,'borracha1.jpg',1)");
+            migrationBuilder.Sql("INSERT INTO Products (Name,Description,Price,Stock,Image,CategoryId) VALUES ('Calculadora simples','Calculadora simples',15.39,20,'calculadora1.jpg',2)");
+
 
         }
 
