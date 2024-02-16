@@ -47,7 +47,7 @@ namespace CleanArchMVC.Application.Services
         }
         public async Task Remove(int? Id)
         {
-            var productEntity = _productRepository.GetByIdAsync(Id).Result
+            var productEntity = _productRepository.GetByIdAsync(Id).Result;
             await _productRepository.RemoveAsync(productEntity);
         }
 
