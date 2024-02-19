@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CleanArchMVC.Application.Products.Queries
 {
-    public class GetProductsQueries : IRequest<IEnumerable<Product>>
+    public class GetProductsQuery : IRequest<IEnumerable<Product>>
     {
     }
 }
