@@ -44,17 +44,17 @@ namespace CleanArchMVC.Application.Services
             return _mapper.Map<ProductDTO>(result);
 
         }
-        public async Task<ProductDTO> GetProductCategory(int? Id)
-        {
-            var productsByIdQuery = new GetProductByIdQuery(Id.Value);
+        //public async Task<ProductDTO> GetProductCategory(int? Id)
+        //{
+        //    var productsByIdQuery = new GetProductByIdQuery(Id.Value);
 
-            if (productsByIdQuery == null)
-                throw new ArgumentNullException($"Entity could not be loaded.");
+        //    if (productsByIdQuery == null)
+        //        throw new ArgumentNullException($"Entity could not be loaded.");
 
-            var result = await _mediator.Send(productsByIdQuery);
+        //    var result = await _mediator.Send(productsByIdQuery);
 
-            return _mapper.Map<ProductDTO>(result);
-        }
+        //    return _mapper.Map<ProductDTO>(result);
+        //}
         public async Task Add(ProductDTO productDTO)
         {
             var productCreateCommand = _mapper.Map<ProductCreateCommand>(productDTO);
