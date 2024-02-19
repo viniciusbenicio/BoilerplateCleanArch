@@ -21,7 +21,7 @@ namespace CleanArchMVC.Application.Services
 
         public async Task<IEnumerable<ProductDTO>> GetProducts()
         {
-            var productEntity = await _productRepository.GetProductAsync();
+            var productEntity = await _productRepository.GetProductsAsync();
             return _mapper.Map<IEnumerable<ProductDTO>>(productEntity);
         }
         public async Task<ProductDTO> GetById(int? Id)
