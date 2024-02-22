@@ -1,11 +1,12 @@
 ﻿using CleanArchMVC.Application.DTOS;
 using CleanArchMVC.Application.Interfaces;
-using CleanArchMVC.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace CleanArchMVC.WebUI.Controllers
 {
+    [Authorize]
     public class CategoriesController : Controller
     {
         private readonly ICategoryService _categoryService;
@@ -101,6 +102,6 @@ namespace CleanArchMVC.WebUI.Controllers
             return View(categoryDTO);
         }
 
-        
+
     }
 }
