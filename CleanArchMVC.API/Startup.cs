@@ -22,8 +22,8 @@ namespace CleanArchMVC.API
         {
             services.AddInfrastructureAPI(Configuration);
             services.AddInfrastructureJWT(Configuration);
-            services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddInfrastructureSwagger();
+            services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,8 +39,8 @@ namespace CleanArchMVC.API
             app.UseHttpsRedirection();
             app.UseStatusCodePages();
             app.UseRouting();
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
