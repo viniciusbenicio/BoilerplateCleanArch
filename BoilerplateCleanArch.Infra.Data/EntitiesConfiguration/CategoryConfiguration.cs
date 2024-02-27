@@ -8,14 +8,13 @@ namespace BoilerplateCleanArch.Infra.Data.EntitiesConfiguration
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-            builder.HasKey(c => c.Id);
-            builder.Property(c => c.Name).HasMaxLength(100).IsRequired();
+            builder.ToTable("Categories", "dbo");
+            builder.Property(x => x.Id).HasColumnName("Id").HasColumnType("int").IsRequired().ValueGeneratedOnAdd();
+            builder.Property(x => x.Name).HasColumnName("Name").HasColumnType("varchar").HasMaxLength(256).IsRequired();
 
-            builder.HasData(
-                  new Category(1, "Material Escolar"),
-                  new Category(2, "Eletronico"),
-                  new Category(3, "Acessórios")
-                          );
+
+            //builder.Ignore(x => x.UsuarioCadastro);
+            //builder.Ignore(x => x.UsuarioAlteracao);
         }
     }
 }

@@ -8,14 +8,15 @@ namespace BoilerplateCleanArch.Infra.Data.EntitiesConfiguration
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
-            builder.HasKey(p => p.Id);
-            builder.Property(p => p.Name).HasMaxLength(100).IsRequired();
-            builder.Property(p => p.Description).HasMaxLength(200).IsRequired();
-
-            builder.Property(p => p.Price).HasPrecision(10, 2);
-
-            builder.HasOne(p => p.Category).WithMany(p => p.Products)
-                   .HasForeignKey(p => p.CategoryId);
+            builder.ToTable("Products", "dbo");
+            builder.Property(x => x.Id).HasColumnName("Id").HasColumnType("int").IsRequired().ValueGeneratedOnAdd();
+            builder.Property(x => x.Name).HasColumnName("Name").HasColumnType("varchar").HasMaxLength(256).IsRequired();
+            builder.Property(x => x.Description).HasColumnName("Description").HasColumnType("varchar").HasMaxLength(256).IsRequired();
+            builder.Property(x => x.Price).HasColumnName("Price").HasColumnType("decimal(10, 2)");
+            builder.Property(x => x.Stock).HasColumnName("Stock").HasColumnType("int");
+            builder.Property(x => x.Image).HasColumnName("Image").HasColumnType("varchar").HasMaxLength(256);
+            builder.Property(x => x.CategoryId).HasColumnName("CategoryId").HasColumnType("int").IsRequired();
+            builder.HasOne(x => x.Category).WithMany(x => x.Products).HasForeignKey(x => x.CategoryId);
         }
     }
 }
