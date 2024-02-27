@@ -10,15 +10,17 @@
   <ItemGroup>
     <None Remove="Scripts\Migrate\001_Schema.sql" />
     <None Remove="Scripts\Migrate\002_Populate.sql" />
-    <None Remove="Scripts\Migrate\2024\02_Tabela_Categories_Products\001_Schema.sql" />
-    <None Remove="Scripts\Migrate\2024\02_Tabela_Categories_Products\002_Populate.sql" />
+    <None Remove="Scripts\Migrate\2024\03_Tabela_Products\001_Schema.sql" />
+    <None Remove="Scripts\Migrate\2024\03_Tabela_Products\002_Populate.sql" />
+    <None Remove="Scripts\Migrate\2024\02_Tabela_Categories\001_Schema.sql" />
+    <None Remove="Scripts\Migrate\2024\02_Tabela_Categories\002_Populate.sql" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\Migrate\2024\01_Tabela_Teste\001_Schema.sql" />
-    <EmbeddedResource Include="Scripts\Migrate\2024\01_Tabela_Teste\002_Populate.sql" />
-    <EmbeddedResource Include="Scripts\Migrate\2024\02_Tabela_Categories_Products\001_Schema.sql" />
-    <EmbeddedResource Include="Scripts\Migrate\2024\02_Tabela_Categories_Products\002_Populate.sql" />
+    <EmbeddedResource Include="Scripts\Migrate\2024\03_Tabela_Products\001_Schema.sql" />
+    <EmbeddedResource Include="Scripts\Migrate\2024\03_Tabela_Products\002_Populate.sql" />
+    <EmbeddedResource Include="Scripts\Migrate\2024\02_Tabela_Categories\001_Schema.sql" />
+    <EmbeddedResource Include="Scripts\Migrate\2024\02_Tabela_Categories\002_Populate.sql" />
   </ItemGroup>
 
   <ItemGroup>
