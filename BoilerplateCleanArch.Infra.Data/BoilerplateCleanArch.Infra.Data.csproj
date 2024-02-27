@@ -37,7 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Scripts\Objects\" />
+    <Folder Include="Scripts\Objects\01 - Procedures\" />
   </ItemGroup>
 
 </Project>
