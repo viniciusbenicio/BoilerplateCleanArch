@@ -1,6 +1,6 @@
 $oldName = "BoilerplateCleanArch"
 $path = "D:\Projetos\Pessoal\$oldName" 
-$newName = "PicPay"
+$newName = "NovoNome"
 Get-ChildItem $path  -Recurse | Where-Object { $_.Name.Contains($oldName) } | Rename-Item -NewName { $_.Name -replace $oldName, $newName }
 
 
@@ -62,7 +62,7 @@ $arquivosClass = @(
     "$path\$newName.Domain\Account\ISeedUserRoleInitial.cs",
     "$path\$newName.Domain\Interfaces\ICategoryRepository.cs",
     "$path\$newName.Domain\Interfaces\IProductRepository.cs",
-    "$path\$newName.Domain\Interfaces\DomainExceptionValidation.cs",
+    "$path\$newName.Domain\Validation\DomainExceptionValidation.cs",
     "$path\$newName.Domain\Entities\Category.cs",
     "$path\$newName.Domain\Entities\Entity.cs",
     "$path\$newName.Domain\Entities\Product.cs",
