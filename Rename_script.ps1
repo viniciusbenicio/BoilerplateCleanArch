@@ -17,9 +17,9 @@ $arquivosSLNeCSPROJ = @(
     "$path\$newName.Infra.IoC\DependencyInjection.cs"
 )
 
-foreach ($filePath in $arquivos) {
+foreach ($filePath in $arquivosSLNeCSPROJ) {
     $content = Get-Content -Path $filePath
-    $novoConteudo = $content -replace "$newName", "$newName"
+    $novoConteudo = $content -replace $oldName, $newName
     $novoConteudo | Set-Content -Path $filePath
 }
 
@@ -115,6 +115,6 @@ $arquivosClass = @(
 
 foreach ($filePath in $arquivosClass) {
     $content = Get-Content -Path $filePath
-    $novoConteudo = $content -replace "$newName", "$newName"
+    $novoConteudo = $content -replace $oldName, $newName
     $novoConteudo | Set-Content -Path $filePath
 }
