@@ -1,6 +1,6 @@
 $oldName = "BoilerplateCleanArch"
 $path = "D:\Projetos\Pessoal\$oldName" 
-$newName = "NovoNome"
+$newName = "PicPay"
 Get-ChildItem $path  -Recurse | Where-Object { $_.Name.Contains($oldName) } | Rename-Item -NewName { $_.Name -replace $oldName, $newName }
 
 
@@ -24,8 +24,7 @@ foreach ($filePath in $arquivosSLNeCSPROJ) {
 }
 
 $arquivosClass = @(
-    #$newName\$newName.API
-    
+    # BoilerplateCleanArch.API
     "$path\$newName.API\Controllers\CategoriesController.cs",
     "$path\$newName.API\Controllers\ProductsController.cs",
     "$path\$newName.API\Controllers\TokenController.cs",
@@ -35,7 +34,7 @@ $arquivosClass = @(
     "$path\$newName.API\Program.cs",
     "$path\$newName.API\Startup.cs",
     
-    #$newName\$newName.Application
+    # BoilerplateCleanArch.Application
     "$path\$newName.Application\DTOS\CategoryDTO.cs",
     "$path\$newName.Application\DTOS\ProductDTO.cs",
     "$path\$newName.Application\Interfaces\ICategoryService.cs",
@@ -56,7 +55,7 @@ $arquivosClass = @(
     "$path\$newName.Application\Services\CategoryService.cs",
     "$path\$newName.Application\Services\ProductService.cs",
 
-    #$newName\$newName.Domain
+    # BoilerplateCleanArch.Domain
     "$path\$newName.Domain\Account\IAuthenticate.cs",
     "$path\$newName.Domain\Account\ISeedUserRoleInitial.cs",
     "$path\$newName.Domain\Account\IAuthenticate.cs",
@@ -67,26 +66,35 @@ $arquivosClass = @(
     "$path\$newName.Domain\Entities\Entity.cs",
     "$path\$newName.Domain\Entities\Product.cs",
 
-    #$newName\$newName.Domain.Tests
+    # BoilerplateCleanArch.Domain.Tests
     "$path\$newName.Domain.Tests\CategoryUnitTest1.cs",
     "$path\$newName.Domain.Tests\ProductUnitTest1.cs",
 
-    #$newName\$newName.Infra.Data
+    # BoilerplateCleanArch.Infra.Data
     "$path\$newName.Infra.Data\Context\ApplicationDbContext.cs",
     "$path\$newName.Infra.Data\EntitiesConfiguration\CategoryConfiguration.cs",
     "$path\$newName.Infra.Data\EntitiesConfiguration\ProductConfiguration.cs",
     "$path\$newName.Infra.Data\Identity\ApplicationUser.cs",
     "$path\$newName.Infra.Data\Identity\AuthenticateService.cs",
     "$path\$newName.Infra.Data\Identity\SeedUserRoleInitial.cs",
+    "$path\$newName.Infra.Data\Migrations\20240212004725_Inicial.cs"
+    "$path\$newName.Infra.Data\Migrations\20240212004725_Inicial.Designer.cs"
+    "$path\$newName.Infra.Data\Migrations\20240212005328_SeedProducts.cs"
+    "$path\$newName.Infra.Data\Migrations\20240212005328_SeedProducts.Designer.cs"
+    "$path\$newName.Infra.Data\Migrations\20240221234706_AddIdentityTables.cs"
+    "$path\$newName.Infra.Data\Migrations\20240221234706_AddIdentityTables.Designer.cs"
+    "$path\$newName.Infra.Data\Migrations\ApplicationDbContextModelSnapshot.cs"
     "$path\$newName.Infra.Data\Repositories\CategoryRepository.cs",
     "$path\$newName.Infra.Data\Repositories\ProductRepository.cs",
     "$path\$newName.Infra.Data\Program.cs",
+
+    # BoilerplateCleanArch.Infra.IoC
     "$path\$newName.Infra.IoC\DependencyInjection.cs",
     "$path\$newName.Infra.IoC\DependencyInjectionAPI.cs",
     "$path\$newName.Infra.IoC\DependencyInjectionJWT.cs",
     "$path\$newName.Infra.IoC\DependencyInjectionSwagger.cs",
 
-    #$newN\Controllers
+    # BoilerplateCleanArch.WebUI
     "$path\$newName.WebUI\Controllers\AccountController.cs",
     "$path\$newName.WebUI\Controllers\CategoriesController.cs",
     "$path\$newName.WebUI\Controllers\HomeController.cs",
