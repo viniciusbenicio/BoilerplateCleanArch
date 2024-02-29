@@ -6,12 +6,14 @@ using BoilerplateCleanArch.Domain.Interfaces;
 using BoilerplateCleanArch.Infra.Data.Context;
 using BoilerplateCleanArch.Infra.Data.Identity;
 using BoilerplateCleanArch.Infra.Data.Repositories;
-using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Microsoft.Extensions.Configuration;
+using BoilerplateCleanArch.Application.Interfaces.Email;
+using BoilerplateCleanArch.Application.Services.Email;
+using BoilerplateCleanArch.Application.DTOS.Email;
 
 namespace BoilerplateCleanArch.Infra.IoC
 {
@@ -33,6 +35,8 @@ namespace BoilerplateCleanArch.Infra.IoC
 
             services.AddScoped<IAuthenticate, AuthenticateService>();
 
+            services.AddScoped<IEmailService, EmailService>();
+
             services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
 
 
@@ -40,6 +44,13 @@ namespace BoilerplateCleanArch.Infra.IoC
             var myhandlers = AppDomain.CurrentDomain.Load("BoilerplateCleanArch.Application");
             //services.AddMediatR(myhandlers);
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(myhandlers));
+
+
+            //Configuração para Envio de e-mail
+            var configuracaoSmtp = new ConfigurationDTO.SmtpConfiguracao();
+            configuration.GetSection("Smtp").Bind(configuracaoSmtp);
+            ConfigurationDTO.Smtp = configuracaoSmtp;
+
 
             return services;
         }
