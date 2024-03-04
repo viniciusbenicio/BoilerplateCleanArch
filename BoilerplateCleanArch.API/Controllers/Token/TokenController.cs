@@ -10,7 +10,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BoilerplateCleanArch.API.Controllers
+namespace BoilerplateCleanArch.API.Controllers.Token
 {
     [Route("api/[controller]")]
     [ApiController]

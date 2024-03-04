@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BoilerplateCleanArch.API.Controllers
+namespace BoilerplateCleanArch.API.Controllers.Category
 {
     [Route("api/[controller]")]
     [ApiController]
