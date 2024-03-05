@@ -1,6 +1,6 @@
 $oldName = "BoilerplateCleanArch"
 $path = "D:\Projetos\Pessoal\$oldName" 
-$newName = "NovoNome"
+$newName = "PicPay"
 Get-ChildItem $path  -Recurse | Where-Object { $_.Name.Contains($oldName) } | Rename-Item -NewName { $_.Name -replace $oldName, $newName }
 
 
@@ -25,9 +25,9 @@ foreach ($filePath in $arquivosSLNeCSPROJ) {
 
 $arquivosClass = @(
     # BoilerplateCleanArch.API
-    "$path\$newName.API\Controllers\CategoriesController.cs",
-    "$path\$newName.API\Controllers\ProductsController.cs",
-    "$path\$newName.API\Controllers\TokenController.cs",
+    "$path\$newName.API\Controllers\Category\CategoriesController.cs",
+    "$path\$newName.API\Controllers\Product\ProductsController.cs",
+    "$path\$newName.API\Controllers\Token\TokenController.cs",
     "$path\$newName.API\DTO\LoginDTO.cs",
     "$path\$newName.API\DTO\RegisterDTO.cs",
     "$path\$newName.API\DTO\UserTokenDTO.cs",
