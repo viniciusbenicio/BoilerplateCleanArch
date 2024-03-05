@@ -1,6 +1,6 @@
 $oldName = "BoilerplateCleanArch"
 $path = "D:\Projetos\Pessoal\$oldName" 
-$newName = "PicPay"
+$newName = "NovoNome"
 Get-ChildItem $path  -Recurse | Where-Object { $_.Name.Contains($oldName) } | Rename-Item -NewName { $_.Name -replace $oldName, $newName }
 
 
@@ -78,13 +78,6 @@ $arquivosClass = @(
     "$path\$newName.Infra.Data\Identity\ApplicationUser.cs",
     "$path\$newName.Infra.Data\Identity\AuthenticateService.cs",
     "$path\$newName.Infra.Data\Identity\SeedUserRoleInitial.cs",
-    "$path\$newName.Infra.Data\Migrations\20240212004725_Inicial.cs"
-    "$path\$newName.Infra.Data\Migrations\20240212004725_Inicial.Designer.cs"
-    "$path\$newName.Infra.Data\Migrations\20240212005328_SeedProducts.cs"
-    "$path\$newName.Infra.Data\Migrations\20240212005328_SeedProducts.Designer.cs"
-    "$path\$newName.Infra.Data\Migrations\20240221234706_AddIdentityTables.cs"
-    "$path\$newName.Infra.Data\Migrations\20240221234706_AddIdentityTables.Designer.cs"
-    "$path\$newName.Infra.Data\Migrations\ApplicationDbContextModelSnapshot.cs"
     "$path\$newName.Infra.Data\Repositories\CategoryRepository.cs",
     "$path\$newName.Infra.Data\Repositories\ProductRepository.cs",
     "$path\$newName.Infra.Data\Program.cs",
