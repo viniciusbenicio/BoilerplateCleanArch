@@ -1,5 +1,6 @@
 ﻿using BoilerplateCleanArch.Domain.Entities;
 using BoilerplateCleanArch.Infra.Data.EntitiesConfiguration.CategoryConfiguration;
+using BoilerplateCleanArch.Infra.Data.EntitiesConfiguration.ProductConfiguration;
 using BoilerplateCleanArch.Infra.Data.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -18,7 +19,7 @@ namespace BoilerplateCleanArch.Infra.Data.Context
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
-            //modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
         }
     }
 }
