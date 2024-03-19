@@ -1,6 +1,6 @@
 $oldName = "BoilerplateCleanArch"
 $path = "D:\Projetos\Pessoal\$oldName" 
-$newName = "NovoNome"
+$newName = "newName"
 Get-ChildItem $path  -Recurse | Where-Object { $_.Name.Contains($oldName) } | Rename-Item -NewName { $_.Name -replace $oldName, $newName }
 
 
@@ -28,17 +28,19 @@ $arquivosClass = @(
     "$path\$newName.API\Controllers\Category\CategoriesController.cs",
     "$path\$newName.API\Controllers\Product\ProductsController.cs",
     "$path\$newName.API\Controllers\Token\TokenController.cs",
-    "$path\$newName.API\DTO\LoginDTO.cs",
-    "$path\$newName.API\DTO\RegisterDTO.cs",
-    "$path\$newName.API\DTO\UserTokenDTO.cs",
+    "$path\$newName.API\DTO\Token\LoginDTO.cs",
+    "$path\$newName.API\DTO\Token\RegisterDTO.cs",
+    "$path\$newName.API\DTO\Token\UserTokenDTO.cs",
     "$path\$newName.API\Program.cs",
     "$path\$newName.API\Startup.cs",
     
     # BoilerplateCleanArch.Application
-    "$path\$newName.Application\DTOS\CategoryDTO.cs",
-    "$path\$newName.Application\DTOS\ProductDTO.cs",
-    "$path\$newName.Application\Interfaces\ICategoryService.cs",
-    "$path\$newName.Application\Interfaces\IProductService.cs",
+    "$path\$newName.Application\DTOS\Category\CategoryDTO.cs",
+    "$path\$newName.Application\DTOS\Product\ProductDTO.cs",
+    "$path\$newName.Application\DTOS\Email\ConfigurationDTO.cs",
+    "$path\$newName.Application\Interfaces\ICategoryService\ICategoryService.cs",
+    "$path\$newName.Application\Interfaces\IProductService\IProductService.cs",
+    "$path\$newName.Application\Interfaces\Interfaces\IEmail\IEmailService.cs",
     "$path\$newName.Application\Mappings\DomainToDTOMappingProfile.cs",
     "$path\$newName.Application\Mappings\DTOtoCommandMappingProfile.cs",
     "$path\$newName.Application\Products\Commands\ProductCommand.cs",
@@ -52,34 +54,35 @@ $arquivosClass = @(
     "$path\$newName.Application\Products\Handlers\ProductUpdateCommandHandler.cs",
     "$path\$newName.Application\Products\Queries\GetProductsByIdQuery.cs",
     "$path\$newName.Application\Products\Queries\GetProductsQueries.cs",
-    "$path\$newName.Application\Services\CategoryService.cs",
-    "$path\$newName.Application\Services\ProductService.cs",
+    "$path\$newName.Application\Services\CategoryService\CategoryService.cs",
+    "$path\$newName.Application\Services\ProductService\ProductService.cs",
+    "$path\$newName.Application\Services\Email\EmailService.cs",
 
     # BoilerplateCleanArch.Domain
     "$path\$newName.Domain\Account\IAuthenticate.cs",
     "$path\$newName.Domain\Account\ISeedUserRoleInitial.cs",
     "$path\$newName.Domain\Account\IAuthenticate.cs",
     "$path\$newName.Domain\Account\ISeedUserRoleInitial.cs",
-    "$path\$newName.Domain\Interfaces\ICategoryRepository.cs",
-    "$path\$newName.Domain\Interfaces\IProductRepository.cs",
+    "$path\$newName.Domain\Interfaces\ICategoryRepository\ICategoryRepository.cs",
+    "$path\$newName.Domain\Interfaces\IProductRepository\IProductRepository.cs",
     "$path\$newName.Domain\Validation\DomainExceptionValidation.cs",
     "$path\$newName.Domain\Entities\Category.cs",
     "$path\$newName.Domain\Entities\Entity.cs",
     "$path\$newName.Domain\Entities\Product.cs",
 
     # BoilerplateCleanArch.Domain.Tests
-    "$path\$newName.Domain.Tests\CategoryUnitTest1.cs",
-    "$path\$newName.Domain.Tests\ProductUnitTest1.cs",
+    "$path\$newName.Domain.Tests\CategoryTests\CategoryUnitTest1.cs",
+    "$path\$newName.Domain.Tests\ProductTests\ProductUnitTest1.cs",
 
     # BoilerplateCleanArch.Infra.Data
     "$path\$newName.Infra.Data\Context\ApplicationDbContext.cs",
-    "$path\$newName.Infra.Data\EntitiesConfiguration\CategoryConfiguration.cs",
-    "$path\$newName.Infra.Data\EntitiesConfiguration\ProductConfiguration.cs",
+    "$path\$newName.Infra.Data\EntitiesConfiguration\CategoryConfiguration\CategoryConfiguration.cs",
+    "$path\$newName.Infra.Data\EntitiesConfiguration\ProductConfiguration\ProductConfiguration.cs",
     "$path\$newName.Infra.Data\Identity\ApplicationUser.cs",
     "$path\$newName.Infra.Data\Identity\AuthenticateService.cs",
     "$path\$newName.Infra.Data\Identity\SeedUserRoleInitial.cs",
-    "$path\$newName.Infra.Data\Repositories\CategoryRepository.cs",
-    "$path\$newName.Infra.Data\Repositories\ProductRepository.cs",
+    "$path\$newName.Infra.Data\Repositories\CategoryRepository\CategoryRepository.cs",
+    "$path\$newName.Infra.Data\Repositories\ProductRepository\ProductRepository.cs",
     "$path\$newName.Infra.Data\Program.cs",
 
     # BoilerplateCleanArch.Infra.IoC
