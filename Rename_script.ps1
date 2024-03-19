@@ -1,6 +1,6 @@
 $oldName = "BoilerplateCleanArch"
 $path = "D:\Projetos\Pessoal\$oldName" 
-$newName = "newName"
+$newName = "AppNovo"
 Get-ChildItem $path  -Recurse | Where-Object { $_.Name.Contains($oldName) } | Rename-Item -NewName { $_.Name -replace $oldName, $newName }
 
 
