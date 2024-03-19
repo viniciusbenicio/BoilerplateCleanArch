@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BoilerplateCleanArch.API.DTO
+namespace BoilerplateCleanArch.API.DTO.Token
 {
     public class UserTokenDTO
     {

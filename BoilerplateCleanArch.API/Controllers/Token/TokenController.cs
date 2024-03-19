@@ -1,4 +1,4 @@
-﻿using BoilerplateCleanArch.API.DTO;
+﻿using BoilerplateCleanArch.API.DTO.Token;
 using BoilerplateCleanArch.Domain.Account;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

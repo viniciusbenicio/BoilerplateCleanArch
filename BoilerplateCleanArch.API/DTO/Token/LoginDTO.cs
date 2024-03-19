@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BoilerplateCleanArch.API.DTO
+namespace BoilerplateCleanArch.API.DTO.Token
 {
     public class LoginDTO
     {
