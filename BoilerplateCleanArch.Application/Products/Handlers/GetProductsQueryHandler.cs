@@ -1,6 +1,6 @@
 ﻿using BoilerplateCleanArch.Application.Products.Queries;
 using BoilerplateCleanArch.Domain.Entities;
-using BoilerplateCleanArch.Domain.Interfaces;
+using BoilerplateCleanArch.Domain.Interfaces.IProductRepository;
 using MediatR;
 using System.Collections.Generic;
 using System.Threading;

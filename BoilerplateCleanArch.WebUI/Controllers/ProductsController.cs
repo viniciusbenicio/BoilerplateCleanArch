@@ -1,5 +1,6 @@
-﻿using BoilerplateCleanArch.Application.DTOS;
-using BoilerplateCleanArch.Application.Interfaces;
+﻿using BoilerplateCleanArch.Application.DTOS.Product;
+using BoilerplateCleanArch.Application.Interfaces.ICategoryService;
+using BoilerplateCleanArch.Application.Interfaces.IProductService;
 using BoilerplateCleanArch.Application.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;

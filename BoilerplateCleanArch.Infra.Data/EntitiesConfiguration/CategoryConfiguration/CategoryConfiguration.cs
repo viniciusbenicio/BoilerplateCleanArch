@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BoilerplateCleanArch.Infra.Data.EntitiesConfiguration
+namespace BoilerplateCleanArch.Infra.Data.EntitiesConfiguration.CategoryConfiguration
 {
     public class CategoryConfiguration : IEntityTypeConfiguration<Category>
     {

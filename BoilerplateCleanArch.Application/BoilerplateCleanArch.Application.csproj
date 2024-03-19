@@ -5,6 +5,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Products\**" />
+    <EmbeddedResource Remove="Products\**" />
+    <None Remove="Products\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Products\Commands\ProductCommand.cs" />
+    <Compile Include="Products\Commands\ProductCreateCommand.cs" />
+    <Compile Include="Products\Commands\ProductRemoveCommand.cs" />
+    <Compile Include="Products\Commands\ProductUpdateCommand.cs" />
+    <Compile Include="Products\Handlers\GetProductByIdQueryHandler.cs" />
+    <Compile Include="Products\Handlers\GetProductsQueryHandler.cs" />
+    <Compile Include="Products\Handlers\ProductCreateCommandHandler.cs" />
+    <Compile Include="Products\Handlers\ProductRemoveCommandHandler.cs" />
+    <Compile Include="Products\Handlers\ProductUpdateCommandHandler.cs" />
+    <Compile Include="Products\Queries\GetProductsByIdQuery.cs" />
+    <Compile Include="Products\Queries\GetProductsQueries.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="MediatR" Version="12.2.0" />
     <PackageReference Include="RestSharp" Version="110.2.0" />

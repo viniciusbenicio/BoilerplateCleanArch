@@ -1,8 +1,8 @@
-﻿using BoilerplateCleanArch.Application.DTOS;
+﻿using BoilerplateCleanArch.Application.DTOS.Category;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BoilerplateCleanArch.Application.Interfaces
+namespace BoilerplateCleanArch.Application.Interfaces.ICategoryService
 {
     public interface ICategoryService
     {

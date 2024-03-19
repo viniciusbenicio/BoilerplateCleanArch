@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BoilerplateCleanArch.Infra.Data.EntitiesConfiguration
+namespace BoilerplateCleanArch.Infra.Data.EntitiesConfiguration.ProductConfiguration
 {
     public class ProductConfiguration : IEntityTypeConfiguration<Product>
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BoilerplateCleanArch.Application.DTOS
+namespace BoilerplateCleanArch.Application.DTOS.Category
 {
     public class CategoryDTO
     {

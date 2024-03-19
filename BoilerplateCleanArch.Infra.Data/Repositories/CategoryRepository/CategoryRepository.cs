@@ -1,12 +1,12 @@
 ﻿using BoilerplateCleanArch.Domain.Entities;
-using BoilerplateCleanArch.Domain.Interfaces;
+using BoilerplateCleanArch.Domain.Interfaces.CategoryRepository;
 using BoilerplateCleanArch.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BoilerplateCleanArch.Infra.Data.Repositories
+namespace BoilerplateCleanArch.Infra.Data.Repositories.CategoryRepository
 {
     public class CategoryRepository : ICategoryRepository
     {

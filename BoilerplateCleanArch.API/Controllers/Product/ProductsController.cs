@@ -1,5 +1,5 @@
-﻿using BoilerplateCleanArch.Application.DTOS;
-using BoilerplateCleanArch.Application.Interfaces;
+﻿using BoilerplateCleanArch.Application.DTOS.Product;
+using BoilerplateCleanArch.Application.Interfaces.IProductService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;

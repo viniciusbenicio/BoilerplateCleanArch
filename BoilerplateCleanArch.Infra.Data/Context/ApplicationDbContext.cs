@@ -1,5 +1,5 @@
 ﻿using BoilerplateCleanArch.Domain.Entities;
-using BoilerplateCleanArch.Infra.Data.EntitiesConfiguration;
+using BoilerplateCleanArch.Infra.Data.EntitiesConfiguration.CategoryConfiguration;
 using BoilerplateCleanArch.Infra.Data.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;

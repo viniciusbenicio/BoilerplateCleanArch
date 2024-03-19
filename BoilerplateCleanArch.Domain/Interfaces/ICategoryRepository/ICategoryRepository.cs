@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BoilerplateCleanArch.Domain.Interfaces
+namespace BoilerplateCleanArch.Domain.Interfaces.CategoryRepository
 {
     public interface ICategoryRepository
     {

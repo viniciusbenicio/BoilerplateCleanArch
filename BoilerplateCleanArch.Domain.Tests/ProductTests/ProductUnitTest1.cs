@@ -3,7 +3,7 @@ using FluentAssertions;
 using System;
 using Xunit;
 
-namespace BoilerplateCleanArch.Domain.Tests
+namespace BoilerplateCleanArch.Domain.Tests.ProductTests
 {
     public class ProductUnitTest1
     {
@@ -11,14 +11,14 @@ namespace BoilerplateCleanArch.Domain.Tests
         public void CreateProduct_WithValidParameters_ResultObjectValidState()
         {
             Action action = () => new Product(1, "Product Name", "Product Description", 9.99m, 99, "product image");
-            action.Should().NotThrow<BoilerplateCleanArch.Domain.Validation.DomainExceptionValidation>();
+            action.Should().NotThrow<Validation.DomainExceptionValidation>();
         }
 
         [Fact]
         public void CreateProduct_NegativeIdValue_DomainExceptionInvalidId()
         {
             Action action = () => new Product(-1, "Product Name", "Product Description", 9.99m, 99, "product image");
-            action.Should().Throw<BoilerplateCleanArch.Domain.Validation.DomainExceptionValidation>()
+            action.Should().Throw<Validation.DomainExceptionValidation>()
                   .WithMessage("Invalid Id value.");
         }
 
@@ -27,7 +27,7 @@ namespace BoilerplateCleanArch.Domain.Tests
         {
             Action action = () => new Product(1, "P", "Product Description", 9.99m, 99, "product image");
             action.Should()
-                  .Throw<BoilerplateCleanArch.Domain.Validation.DomainExceptionValidation>()
+                  .Throw<Validation.DomainExceptionValidation>()
                   .WithMessage("Invalid name, too short, minumum 3 Caracteres");
         }
 
@@ -36,7 +36,7 @@ namespace BoilerplateCleanArch.Domain.Tests
         {
             Action action = () => new Product(1, "Product Name", "Product Description", 9.99m, 99, "product image.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpgproduct image.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg.jpg");
             action.Should()
-                  .Throw<BoilerplateCleanArch.Domain.Validation.DomainExceptionValidation>()
+                  .Throw<Validation.DomainExceptionValidation>()
                   .WithMessage("Invalid image name, too long, maximum 250 Caracteres");
         }
 
@@ -45,7 +45,7 @@ namespace BoilerplateCleanArch.Domain.Tests
         {
             Action action = () => new Product(1, "Procut Name", "Product Description", 9.99m, 99, null);
             action.Should()
-                  .NotThrow<BoilerplateCleanArch.Domain.Validation.DomainExceptionValidation>();
+                  .NotThrow<Validation.DomainExceptionValidation>();
         }
         [Fact]
         public void CreateProduct_WithNullImageName_NoNullReferenceException()
@@ -59,7 +59,7 @@ namespace BoilerplateCleanArch.Domain.Tests
         {
             Action action = () => new Product(1, "Product Name", "Product Description", 9.99m, 99, "");
             action.Should()
-                  .NotThrow<BoilerplateCleanArch.Domain.Validation.DomainExceptionValidation>();
+                  .NotThrow<Validation.DomainExceptionValidation>();
         }
 
         [Theory]
@@ -68,7 +68,7 @@ namespace BoilerplateCleanArch.Domain.Tests
         {
             Action action = () => new Product(1, "Pro", "Product Description", 9.99m, value, "product image");
             action.Should()
-                  .Throw<BoilerplateCleanArch.Domain.Validation.DomainExceptionValidation>()
+                  .Throw<Validation.DomainExceptionValidation>()
                   .WithMessage("Invalid stock value");
         }
 
@@ -78,7 +78,7 @@ namespace BoilerplateCleanArch.Domain.Tests
         {
             Action action = () => new Product(1, "Prorduct Name", "Product Description", value, 1, "product image");
             action.Should()
-                  .Throw<BoilerplateCleanArch.Domain.Validation.DomainExceptionValidation>()
+                  .Throw<Validation.DomainExceptionValidation>()
                   .WithMessage("Invalid price value");
         }
     }

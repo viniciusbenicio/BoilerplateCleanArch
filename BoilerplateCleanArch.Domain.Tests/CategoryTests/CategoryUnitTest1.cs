@@ -3,7 +3,7 @@ using FluentAssertions;
 using System;
 using Xunit;
 
-namespace BoilerplateCleanArch.Domain.Tests
+namespace BoilerplateCleanArch.Domain.Tests.CategoryTests
 {
     public class CategoryUnitTest1
     {
@@ -12,7 +12,7 @@ namespace BoilerplateCleanArch.Domain.Tests
         {
             Action action = () => new Category(1, "Category Name");
             action.Should()
-                  .NotThrow<BoilerplateCleanArch.Domain.Validation.DomainExceptionValidation>();
+                  .NotThrow<Validation.DomainExceptionValidation>();
         }
 
         [Fact]
@@ -20,7 +20,7 @@ namespace BoilerplateCleanArch.Domain.Tests
         {
             Action action = () => new Category(-1, "Category Name");
             action.Should()
-                  .Throw<BoilerplateCleanArch.Domain.Validation.DomainExceptionValidation>()
+                  .Throw<Validation.DomainExceptionValidation>()
                   .WithMessage("Invalid Id value");
         }
 
@@ -29,7 +29,7 @@ namespace BoilerplateCleanArch.Domain.Tests
         {
             Action action = () => new Category(1, "CA");
             action.Should()
-                  .Throw<BoilerplateCleanArch.Domain.Validation.DomainExceptionValidation>()
+                  .Throw<Validation.DomainExceptionValidation>()
                   .WithMessage("Invalid name, too short, minumum 3 Caracteres");
         }
 
@@ -38,7 +38,7 @@ namespace BoilerplateCleanArch.Domain.Tests
         {
             Action action = () => new Category(1, "");
             action.Should()
-                  .Throw<BoilerplateCleanArch.Domain.Validation.DomainExceptionValidation>()
+                  .Throw<Validation.DomainExceptionValidation>()
                   .WithMessage($"Invalid name.Name is Required");
         }
 
@@ -47,7 +47,7 @@ namespace BoilerplateCleanArch.Domain.Tests
         {
             Action action = () => new Category(1, null);
             action.Should()
-                  .Throw<BoilerplateCleanArch.Domain.Validation.DomainExceptionValidation>();
+                  .Throw<Validation.DomainExceptionValidation>();
         }
     }
 }

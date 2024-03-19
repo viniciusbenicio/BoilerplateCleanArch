@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using BoilerplateCleanArch.Application.DTOS;
-using BoilerplateCleanArch.Application.Interfaces;
+using BoilerplateCleanArch.Application.DTOS.Category;
+using BoilerplateCleanArch.Application.Interfaces.ICategoryService;
 using BoilerplateCleanArch.Domain.Entities;
-using BoilerplateCleanArch.Domain.Interfaces;
+using BoilerplateCleanArch.Domain.Interfaces.CategoryRepository;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BoilerplateCleanArch.Application.Services
+namespace BoilerplateCleanArch.Application.Services.CategoryService
 {
     public class CategoryService : ICategoryService
     {

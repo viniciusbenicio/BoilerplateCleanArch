@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using BoilerplateCleanArch.Application.DTOS;
-using BoilerplateCleanArch.Application.Interfaces;
+using BoilerplateCleanArch.Application.DTOS.Product;
+using BoilerplateCleanArch.Application.Interfaces.IProductService;
 using BoilerplateCleanArch.Application.Products.Commands;
 using BoilerplateCleanArch.Application.Products.Queries;
 using MediatR;
@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BoilerplateCleanArch.Application.Services
+namespace BoilerplateCleanArch.Application.Services.ProductService
 {
     public class ProductService : IProductService
     {

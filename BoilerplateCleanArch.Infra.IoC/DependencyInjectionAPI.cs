@@ -1,11 +1,7 @@
-﻿using BoilerplateCleanArch.Application.Interfaces;
-using BoilerplateCleanArch.Application.Mappings;
-using BoilerplateCleanArch.Application.Services;
+﻿using BoilerplateCleanArch.Application.Mappings;
 using BoilerplateCleanArch.Domain.Account;
-using BoilerplateCleanArch.Domain.Interfaces;
 using BoilerplateCleanArch.Infra.Data.Context;
 using BoilerplateCleanArch.Infra.Data.Identity;
-using BoilerplateCleanArch.Infra.Data.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +10,14 @@ using Microsoft.Extensions.Configuration;
 using BoilerplateCleanArch.Application.Interfaces.Email;
 using BoilerplateCleanArch.Application.Services.Email;
 using BoilerplateCleanArch.Application.DTOS.Email;
+using BoilerplateCleanArch.Infra.Data.Repositories.CategoryRepository;
+using BoilerplateCleanArch.Infra.Data.Repositories.ProductRepository;
+using BoilerplateCleanArch.Domain.Interfaces.CategoryRepository;
+using BoilerplateCleanArch.Domain.Interfaces.IProductRepository;
+using BoilerplateCleanArch.Application.Interfaces.ICategoryService;
+using BoilerplateCleanArch.Application.Interfaces.IProductService;
+using BoilerplateCleanArch.Application.Services.CategoryService;
+using BoilerplateCleanArch.Application.Services.ProductService;
 
 namespace BoilerplateCleanArch.Infra.IoC
 {

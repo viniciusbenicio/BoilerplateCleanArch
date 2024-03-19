@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BoilerplateCleanArch.Application.DTOS;
+using BoilerplateCleanArch.Application.DTOS.Product;
 using BoilerplateCleanArch.Application.Products.Commands;
 using System;
 using System.Collections.Generic;

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using BoilerplateCleanArch.Application.DTOS;
+using BoilerplateCleanArch.Application.DTOS.Category;
+using BoilerplateCleanArch.Application.DTOS.Product;
 using BoilerplateCleanArch.Domain.Entities;
 
 namespace BoilerplateCleanArch.Application.Mappings
