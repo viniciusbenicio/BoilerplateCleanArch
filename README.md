@@ -1,1 +1,1 @@
-# BoriplateCleanArch
+# boilerplate
