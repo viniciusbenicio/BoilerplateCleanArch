@@ -28,7 +28,7 @@ namespace BoilerplateCleanArch.Application.Services.Email
             {
                 smptClient.Send(mail);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

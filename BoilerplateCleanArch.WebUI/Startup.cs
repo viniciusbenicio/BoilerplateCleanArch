@@ -25,7 +25,7 @@ namespace BoilerplateCleanArch.WebUI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ISeedUserRoleInitial seedUserRoleInitial)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env/*, ISeedUserRoleInitial seedUserRoleInitial*/)
         {
             if (env.IsDevelopment())
             {
@@ -42,8 +42,8 @@ namespace BoilerplateCleanArch.WebUI
 
             app.UseRouting();
 
-            seedUserRoleInitial.SeedRoles();
-            seedUserRoleInitial.SeedUsers();
+            //seedUserRoleInitial.SeedRoles();
+            //seedUserRoleInitial.SeedUsers();
 
             app.UseAuthentication();
             app.UseAuthorization();
