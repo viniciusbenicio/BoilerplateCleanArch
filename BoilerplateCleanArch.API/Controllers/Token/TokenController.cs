@@ -1,5 +1,4 @@
 ﻿using BoilerplateCleanArch.API.DTO.Token;
-using BoilerplateCleanArch.Domain.Account;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -16,12 +15,10 @@ namespace BoilerplateCleanArch.API.Controllers.Token
     [ApiController]
     public class TokenController : ControllerBase
     {
-        private readonly IAuthenticate _authentication;
         private readonly IConfiguration _configuration;
 
-        public TokenController(IAuthenticate authentication, IConfiguration configuration)
+        public TokenController(IConfiguration configuration)
         {
-            _authentication = authentication;
             _configuration = configuration;
         }
 
@@ -30,30 +27,34 @@ namespace BoilerplateCleanArch.API.Controllers.Token
         [Authorize]
         public async Task<ActionResult> CreateUser([FromBody] RegisterDTO registerDTO)
         {
-            var result = await _authentication.RegisterUser(registerDTO.Email, registerDTO.Password);
+            //var result = await _authentication.RegisterUser(registerDTO.Email, registerDTO.Password);
 
-            if (result)
-                return Ok($"User {registerDTO.Email}, was create sucessfully");
-            else
-            {
-                ModelState.AddModelError(string.Empty, "Invalid Login attempt.");
-                return BadRequest(ModelState);
-            }
+            //if (result)
+            //    return Ok($"User {registerDTO.Email}, was create sucessfully");
+            //else
+            //{
+            //    ModelState.AddModelError(string.Empty, "Invalid Login attempt.");
+            //    return BadRequest(ModelState);
+            //}
+
+            return BadRequest(ModelState);
         }
 
         [AllowAnonymous]
         [HttpPost("LoginUser")]
         public async Task<ActionResult<UserTokenDTO>> Login([FromBody] LoginDTO loginDTO)
         {
-            var result = await _authentication.Authenticate(loginDTO.Email, loginDTO.Password);
+            //var result = await _authentication.Authenticate(loginDTO.Email, loginDTO.Password);
 
-            if (result)
-                return GenerateToken(loginDTO);
-            else
-            {
-                ModelState.AddModelError(string.Empty, "Invalid Login attempt.");
-                return BadRequest(ModelState);
-            }
+            ////if (result)
+            ////    return GenerateToken(loginDTO);
+            //else
+            //{
+            //    ModelState.AddModelError(string.Empty, "Invalid Login attempt.");
+            //    return BadRequest(ModelState);
+            //}
+
+            return BadRequest(ModelState);
         }
 
         private ActionResult<UserTokenDTO> GenerateToken(LoginDTO loginDTO)
