@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
-using BoilerplateCleanArch.Application.DTOS.Category;
-using BoilerplateCleanArch.Application.DTOS.Product;
+using BoilerplateCleanArch.Application.DTOS.User;
 using BoilerplateCleanArch.Domain.Entities;
 
 namespace BoilerplateCleanArch.Application.Mappings
@@ -9,8 +8,7 @@ namespace BoilerplateCleanArch.Application.Mappings
     {
         public DomainToDTOMappingProfile()
         {
-            CreateMap<Category, CategoryDTO>().ReverseMap();
-            CreateMap<Product, ProductDTO>().ReverseMap();
+            CreateMap<User, UserDTO>().ReverseMap();
         }
     }
 }

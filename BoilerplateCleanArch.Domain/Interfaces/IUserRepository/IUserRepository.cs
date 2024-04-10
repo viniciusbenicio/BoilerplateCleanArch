@@ -1,0 +1,15 @@
+﻿using BoilerplateCleanArch.Domain.Entities;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace BoilerplateCleanArch.Domain.Interfaces.IUserRepository
+{
+    public interface IUserRepository
+    {
+        Task<IEnumerable<User>> GetUsersAsync();
+        Task<User> GetByIdAsync(int? id);
+        Task<User> CreateAsync(User user);
+        Task<User> UpdateAsync(User user);
+        Task<User> RemoveAsync(User user);
+    }
+}

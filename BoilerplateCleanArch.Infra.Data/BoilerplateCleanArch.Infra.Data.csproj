@@ -8,8 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Scripts\Migrate\001_Schema.sql" />
-    <None Remove="Scripts\Migrate\002_Populate.sql" />
+    <Compile Remove="Scripts\Objects\**" />
+    <EmbeddedResource Remove="Scripts\Objects\**" />
+    <None Remove="Scripts\Objects\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,8 +31,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Scripts\Migrate\2024\" />
-    <Folder Include="Scripts\Objects\01 - Procedures\" />
+    <Folder Include="Scripts\Migrate\2024\01-Table_Users\" />
+    <Folder Include="Scripts\Migrate\Objects\Procedures\" />
   </ItemGroup>
 
 </Project>

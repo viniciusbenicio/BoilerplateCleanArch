@@ -8,6 +8,7 @@ using BoilerplateCleanArch.Application.Services.Email;
 using BoilerplateCleanArch.Application.Services.ProductService;
 using BoilerplateCleanArch.Domain.Interfaces.CategoryRepository;
 using BoilerplateCleanArch.Domain.Interfaces.IProductRepository;
+using BoilerplateCleanArch.Domain.Interfaces.IUserRepository;
 using BoilerplateCleanArch.Infra.Data.Context;
 using BoilerplateCleanArch.Infra.Data.Repositories.CategoryRepository;
 using BoilerplateCleanArch.Infra.Data.Repositories.ProductRepository;
