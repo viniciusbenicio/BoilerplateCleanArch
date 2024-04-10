@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Scripts\Objects\**" />
+    <EmbeddedResource Remove="Scripts\Objects\**" />
+    <None Remove="Scripts\Objects\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BoilerplateCleanArch.Domain\BoilerplateCleanArch.Domain.csproj" />
   </ItemGroup>
 
@@ -28,7 +34,7 @@
 
   <ItemGroup>
     <Folder Include="Scripts\Migrate\2024\01-Table_Users\" />
-    <Folder Include="Scripts\Objects\01 - Procedures\" />
+    <Folder Include="Scripts\Migrate\Objects\Procedures\" />
   </ItemGroup>
 
 </Project>
