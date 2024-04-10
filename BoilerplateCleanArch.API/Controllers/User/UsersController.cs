@@ -69,7 +69,7 @@ namespace BoilerplateCleanArch.API.Controllers.User
             var userDTO = await _userService.GetById(id);
 
             if (userDTO == null)
-                return NotFound("Category not found");
+                return NotFound("User not found");
 
             await _userService.Remove(userDTO.Id);
 
