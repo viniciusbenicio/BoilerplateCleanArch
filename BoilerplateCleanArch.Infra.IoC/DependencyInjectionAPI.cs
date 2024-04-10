@@ -1,7 +1,9 @@
 ﻿using BoilerplateCleanArch.Application.DTOS.Email;
 using BoilerplateCleanArch.Application.Interfaces.Email;
+using BoilerplateCleanArch.Application.Interfaces.IUserService;
 using BoilerplateCleanArch.Application.Mappings;
 using BoilerplateCleanArch.Application.Services.Email;
+using BoilerplateCleanArch.Application.Services.UserService;
 using BoilerplateCleanArch.Domain.Interfaces.IUserRepository;
 using BoilerplateCleanArch.Infra.Data.Context;
 using BoilerplateCleanArch.Infra.Data.Repositories.UserRepository;
@@ -20,6 +22,7 @@ namespace BoilerplateCleanArch.Infra.IoC
 
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
             services.AddScoped<IEmailService, EmailService>();
 
             services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
