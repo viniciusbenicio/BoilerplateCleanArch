@@ -8,11 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Scripts\Migrate\001_Schema.sql" />
-    <None Remove="Scripts\Migrate\002_Populate.sql" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\BoilerplateCleanArch.Domain\BoilerplateCleanArch.Domain.csproj" />
   </ItemGroup>
 
@@ -32,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Scripts\Migrate\2024\" />
+    <Folder Include="Scripts\Migrate\2024\01-Table_Users\" />
     <Folder Include="Scripts\Objects\01 - Procedures\" />
   </ItemGroup>
 

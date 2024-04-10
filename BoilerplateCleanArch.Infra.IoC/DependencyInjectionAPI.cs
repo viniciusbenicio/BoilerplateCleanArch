@@ -18,6 +18,10 @@ using BoilerplateCleanArch.Application.Interfaces.ICategoryService;
 using BoilerplateCleanArch.Application.Interfaces.IProductService;
 using BoilerplateCleanArch.Application.Services.CategoryService;
 using BoilerplateCleanArch.Application.Services.ProductService;
+using BoilerplateCleanArch.Domain.Interfaces.IUserRepository;
+using BoilerplateCleanArch.Infra.Data.Repositories.UserRepository;
+using BoilerplateCleanArch.Application.Interfaces.IUserService;
+using BoilerplateCleanArch.Application.Services.UserService;
 
 namespace BoilerplateCleanArch.Infra.IoC
 {
@@ -34,6 +38,8 @@ namespace BoilerplateCleanArch.Infra.IoC
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
 
