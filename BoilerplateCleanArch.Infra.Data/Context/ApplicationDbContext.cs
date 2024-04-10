@@ -1,6 +1,5 @@
 ﻿using BoilerplateCleanArch.Domain.Entities;
-using BoilerplateCleanArch.Infra.Data.EntitiesConfiguration.CategoryConfiguration;
-using BoilerplateCleanArch.Infra.Data.EntitiesConfiguration.ProductConfiguration;
+using BoilerplateCleanArch.Infra.Data.EntitiesConfiguration.UserConfiguration;
 using Microsoft.EntityFrameworkCore;
 
 namespace BoilerplateCleanArch.Infra.Data.Context
