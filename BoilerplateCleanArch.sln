@@ -15,8 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoilerplateCleanArch.Infra.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoilerplateCleanArch.Infra.IoC", "BoilerplateCleanArch.Infra.IoC\BoilerplateCleanArch.Infra.IoC.csproj", "{5BD34119-672F-4FCD-9793-104262FE6733}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoilerplateCleanArch.WebUI", "BoilerplateCleanArch.WebUI\BoilerplateCleanArch.WebUI.csproj", "{D893E583-DE73-4EE3-8D1B-E0BE54D8C384}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,10 +45,6 @@ Global
 		{5BD34119-672F-4FCD-9793-104262FE6733}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BD34119-672F-4FCD-9793-104262FE6733}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BD34119-672F-4FCD-9793-104262FE6733}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D893E583-DE73-4EE3-8D1B-E0BE54D8C384}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D893E583-DE73-4EE3-8D1B-E0BE54D8C384}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D893E583-DE73-4EE3-8D1B-E0BE54D8C384}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D893E583-DE73-4EE3-8D1B-E0BE54D8C384}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
