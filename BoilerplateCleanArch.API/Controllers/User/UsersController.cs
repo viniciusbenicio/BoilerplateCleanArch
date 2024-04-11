@@ -1,7 +1,9 @@
 ﻿using BoilerplateCleanArch.Application.DTOS.User;
+using BoilerplateCleanArch.Application.Interfaces.ITokenService;
 using BoilerplateCleanArch.Application.Interfaces.IUserService;
-using Microsoft.AspNetCore.Authorization;
+using BoilerplateCleanArch.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -13,9 +15,11 @@ namespace BoilerplateCleanArch.API.Controllers.User
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
-        public UsersController(IUserService userService)
+        private readonly ITokenService _tokenService;
+        public UsersController(IUserService userService, ITokenService tokenService)
         {
             _userService = userService;
+            _tokenService = tokenService;
         }
 
         [HttpGet]
@@ -45,9 +49,13 @@ namespace BoilerplateCleanArch.API.Controllers.User
             if (userDTO == null)
                 return BadRequest("Invalid Data");
 
-            await _userService.Add(userDTO);
 
-            return new CreatedAtRouteResult("GetUser", new { id = userDTO.Id }, userDTO);
+            //verificar se existe na base se nao cria, e criando segue pela geração de token e salva no banco.
+             await _userService.Add(userDTO);
+
+
+            return Ok(_tokenService.GenerateJWT(userDTO));
+            //return new CreatedAtRouteResult("GetUser", new { id = userDTO.Id }, userDTO);
         }
 
         [HttpPut]
