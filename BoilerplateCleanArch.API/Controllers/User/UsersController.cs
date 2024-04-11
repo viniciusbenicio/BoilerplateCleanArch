@@ -1,6 +1,6 @@
 ﻿using BoilerplateCleanArch.Application.DTOS.User;
+using BoilerplateCleanArch.Application.Interfaces.ITokenService;
 using BoilerplateCleanArch.Application.Interfaces.IUserService;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -13,9 +13,11 @@ namespace BoilerplateCleanArch.API.Controllers.User
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
-        public UsersController(IUserService userService)
+        private readonly ITokenService _tokenService;
+        public UsersController(IUserService userService, ITokenService tokenService)
         {
             _userService = userService;
+            _tokenService = tokenService;
         }
 
         [HttpGet]
@@ -45,7 +47,8 @@ namespace BoilerplateCleanArch.API.Controllers.User
             if (userDTO == null)
                 return BadRequest("Invalid Data");
 
-            await _userService.Add(userDTO);
+             _tokenService.GenerateJWT(userDTO);
+             await _userService.Add(userDTO);
 
             return new CreatedAtRouteResult("GetUser", new { id = userDTO.Id }, userDTO);
         }
