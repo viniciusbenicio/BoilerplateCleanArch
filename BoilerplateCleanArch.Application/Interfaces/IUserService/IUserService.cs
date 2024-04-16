@@ -1,4 +1,5 @@
 ﻿using BoilerplateCleanArch.Application.DTOS.User;
+using BoilerplateCleanArch.Domain.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,5 +12,6 @@ namespace BoilerplateCleanArch.Application.Interfaces.IUserService
         Task Add(UserDTO userDTO);
         Task Update(UserDTO userDTO);
         Task Remove(int? Id);
+        Task<User> GetUserByAccessToken(string accessToken);
     }
 }

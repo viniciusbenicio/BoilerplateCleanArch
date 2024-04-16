@@ -2,6 +2,7 @@
 using BoilerplateCleanArch.Domain.Interfaces.IUserRepository;
 using BoilerplateCleanArch.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace BoilerplateCleanArch.Infra.Data.Repositories.UserRepository
 {
@@ -43,13 +44,18 @@ namespace BoilerplateCleanArch.Infra.Data.Repositories.UserRepository
             return user;
         }
 
-        public async void SaveToken(User user, string token, DateTime? expiration)
+        public async void SaveToken(User user, string accessToken, DateTime? expiration)
         {
             var userDb = await GetByIdAsync(user.Id);
-            userDb.AccessToken = token;
+            userDb.AccessToken = accessToken;
             userDb.Expiration = expiration;
 
             await UpdateAsync(userDb);
+        }
+
+        public async Task<User> GetUserByAccessToken(string accessToken)
+        {
+            return _userContext.Users.FirstOrDefaultAsync(x => x.AccessToken == accessToken).Result;
         }
     }
 }

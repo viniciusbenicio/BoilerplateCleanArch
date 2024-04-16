@@ -12,6 +12,8 @@ namespace BoilerplateCleanArch.Domain.Interfaces.IUserRepository
         Task<User> CreateAsync(User user);
         Task<User> UpdateAsync(User user);
         Task<User> RemoveAsync(User user);
-        void SaveToken(User user, string token, DateTime? expiration);
+        void SaveToken(User user, string accessToken, DateTime? expiration);
+        //void DeleteToken();
+        Task<User> GetUserByAccessToken(string accessToken);
     }
 }

@@ -77,6 +77,5 @@ namespace BoilerplateCleanArch.API.Controllers.User
 
             return Ok(userDTO);
         }
-
     }
 }

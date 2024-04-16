@@ -22,7 +22,6 @@ namespace BoilerplateCleanArch.Application.Services.UserService
             var userEntity = await _userRepository.GetByIdAsync(Id);
             return _mapper.Map<UserDTO>(userEntity);
         }
-
         public async Task<IEnumerable<UserDTO>> GetUsers()
         {
             var usersEntity = await _userRepository.GetUsersAsync();
@@ -42,6 +41,10 @@ namespace BoilerplateCleanArch.Application.Services.UserService
         {
             var userEntity = _userRepository.GetByIdAsync(Id).Result;
             await _userRepository.RemoveAsync(userEntity);
+        }
+        public async Task<User> GetUserByAccessToken(string accessToken)
+        {
+            return await _userRepository.GetUserByAccessToken(accessToken);
         }
     }
 }

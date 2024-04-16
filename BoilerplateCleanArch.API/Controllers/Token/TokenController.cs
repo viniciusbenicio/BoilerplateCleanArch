@@ -3,13 +3,8 @@ using BoilerplateCleanArch.Application.Interfaces.ITokenService;
 using BoilerplateCleanArch.Application.Interfaces.IUserService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System;
-using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BoilerplateCleanArch.API.Controllers.Token
@@ -18,13 +13,11 @@ namespace BoilerplateCleanArch.API.Controllers.Token
     [ApiController]
     public class TokenController : ControllerBase
     {
-        private readonly IConfiguration _configuration;
         private readonly IUserService _userService;
         private readonly ITokenService _tokenService;
 
-        public TokenController(IConfiguration configuration, IUserService userService, ITokenService tokenService)
+        public TokenController(IUserService userService, ITokenService tokenService)
         {
-            _configuration = configuration;
             _userService = userService;
             _tokenService = tokenService;
         }
@@ -54,16 +47,12 @@ namespace BoilerplateCleanArch.API.Controllers.Token
             //var result = await _authentication.Authenticate(loginDTO.Email, loginDTO.Password);
 
             //Criar autenticação após isso gerar token e atualizar no banco com token novo
-
-            if (loginDTO != null)
+            if (loginDTO is not null)
             {
                 var users = await _userService.GetUsers();
-                var user = users.FirstOrDefault(x => x.Email == loginDTO.Email);
-
+                var user = users.FirstOrDefault(x => x.Email == loginDTO.Email && x.Password == loginDTO.Password);
                 var token = _tokenService.GenerateJWT(user);
-
                 return Ok(token.AccessToken);
-
             }
             else
             {
@@ -72,27 +61,20 @@ namespace BoilerplateCleanArch.API.Controllers.Token
             }
         }
 
-        private ActionResult<UserTokenDTO> GenerateToken(LoginDTO loginDTO)
+        [HttpPost("LogoutUser")]
+        public async Task<IActionResult> Logout([FromBody] UserLogoutDTO userLogoutDTO)
         {
-            var claims = new[]
+            ClaimsPrincipal user = HttpContext.User;
+
+            if (user is not null)
             {
-                new Claim("email", loginDTO.Email),
-                new Claim("valor", "qualquer coisa"),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-            };
+                var logoutUser = await _userService.GetUserByAccessToken(userLogoutDTO.AccessToken);
+                //await _userService.DeleteTokens(logoutUser.Id);
 
-            var privateKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));
-            var credentials = new SigningCredentials(privateKey, SecurityAlgorithms.HmacSha256);
-            var expiration = DateTime.UtcNow.AddMinutes(30);
+                return Ok(logoutUser);
+            }
 
-            JwtSecurityToken token = new JwtSecurityToken(issuer: _configuration["Jwt:Issuer"], audience: _configuration["Jwt:Audience"], claims: claims, expires: expiration, signingCredentials: credentials);
-
-            return new UserTokenDTO()
-            {
-                Token = new JwtSecurityTokenHandler().WriteToken(token),
-                Expiration = expiration
-            };
-
+            return BadRequest();
         }
     }
 }
