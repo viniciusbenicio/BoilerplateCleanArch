@@ -8,7 +8,7 @@ CREATE TABLE Users (
     LastName VARCHAR(50),
     Email VARCHAR(150) NOT NULL,
     Password VARCHAR(20) NOT NULL,
-	Token VARCHAR(MAX),
+	AccessToken VARCHAR(MAX),
 	Expiration DATETIME,
     Active BIT NOT NULL
 )

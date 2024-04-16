@@ -14,7 +14,7 @@ namespace BoilerplateCleanArch.Infra.Data.EntitiesConfiguration.UserConfiguratio
             builder.Property(x => x.LastName).HasColumnName("LastName").HasColumnType("varchar").HasMaxLength(50);
             builder.Property(x => x.Email).HasColumnName("Email").HasColumnType("varchar").HasMaxLength(150).IsRequired();
             builder.Property(x => x.Password).HasColumnName("Password").HasColumnType("varchar").HasMaxLength(20).IsRequired();
-            builder.Property(x => x.Token).HasColumnName("Token").HasColumnType("varchar").HasMaxLength(-1);
+            builder.Property(x => x.AccessToken).HasColumnName("AccessToken").HasColumnType("varchar").HasMaxLength(-1);
             builder.Property(x => x.Expiration).HasColumnName("Expiration").HasColumnType("datetime");
             builder.Property(x => x.Active).HasColumnName("Active").HasColumnType("bit").IsRequired();
         }

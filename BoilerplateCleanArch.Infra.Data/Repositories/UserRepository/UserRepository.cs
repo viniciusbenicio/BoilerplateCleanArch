@@ -42,5 +42,14 @@ namespace BoilerplateCleanArch.Infra.Data.Repositories.UserRepository
             await _userContext.SaveChangesAsync();
             return user;
         }
+
+        public async void SaveToken(User user, string token, DateTime? expiration)
+        {
+            var userDb = await GetByIdAsync(user.Id);
+            userDb.AccessToken = token;
+            userDb.Expiration = expiration;
+
+            await UpdateAsync(userDb);
+        }
     }
 }

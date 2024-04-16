@@ -1,10 +1,13 @@
 ﻿using BoilerplateCleanArch.API.DTO.Token;
+using BoilerplateCleanArch.Application.Interfaces.ITokenService;
+using BoilerplateCleanArch.Application.Interfaces.IUserService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,10 +19,14 @@ namespace BoilerplateCleanArch.API.Controllers.Token
     public class TokenController : ControllerBase
     {
         private readonly IConfiguration _configuration;
+        private readonly IUserService _userService;
+        private readonly ITokenService _tokenService;
 
-        public TokenController(IConfiguration configuration)
+        public TokenController(IConfiguration configuration, IUserService userService, ITokenService tokenService)
         {
             _configuration = configuration;
+            _userService = userService;
+            _tokenService = tokenService;
         }
 
         [HttpPost("CreateUser")]
@@ -46,15 +53,23 @@ namespace BoilerplateCleanArch.API.Controllers.Token
         {
             //var result = await _authentication.Authenticate(loginDTO.Email, loginDTO.Password);
 
-            ////if (result)
-            ////    return GenerateToken(loginDTO);
-            //else
-            //{
-            //    ModelState.AddModelError(string.Empty, "Invalid Login attempt.");
-            //    return BadRequest(ModelState);
-            //}
+            //Criar autenticação após isso gerar token e atualizar no banco com token novo
 
-            return BadRequest(ModelState);
+            if (loginDTO != null)
+            {
+                var users = await _userService.GetUsers();
+                var user = users.FirstOrDefault(x => x.Email == loginDTO.Email);
+
+                var token = _tokenService.GenerateJWT(user);
+
+                return Ok(token.AccessToken);
+
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid Login attempt.");
+                return BadRequest(ModelState);
+            }
         }
 
         private ActionResult<UserTokenDTO> GenerateToken(LoginDTO loginDTO)

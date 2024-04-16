@@ -1,6 +1,6 @@
 ﻿using BoilerplateCleanArch.Domain.Entities;
+using BoilerplateCleanArch.Domain.Interfaces.IUserRepository;
 using BoilerplateCleanArch.Domain.Interfaces.IUserRepository.ITokenRepository;
-using BoilerplateCleanArch.Infra.Data.Context;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -11,13 +11,13 @@ namespace BoilerplateCleanArch.Infra.Data.Repositories.TokenRepository
 {
     public class TokenRepository : ITokenRepository
     {
-        private readonly ApplicationDbContext _userContext;
         private readonly IConfiguration _configuration;
+        private readonly IUserRepository _userRepository;
 
-        public TokenRepository(ApplicationDbContext userContext, IConfiguration configuration)
+        public TokenRepository(IConfiguration configuration, IUserRepository userRepository)
         {
-            _userContext = userContext;
             _configuration = configuration;
+            _userRepository = userRepository;
         }
         public User GenerateJWT(User user)
         {
@@ -34,11 +34,15 @@ namespace BoilerplateCleanArch.Infra.Data.Repositories.TokenRepository
 
             JwtSecurityToken token = new JwtSecurityToken(issuer: _configuration["Jwt:Issuer"], audience: _configuration["Jwt:Audience"], claims: claims, expires: expiration, signingCredentials: credentials);
 
-            return new User(user.FirstName)
+            var tokeUser =  new User(user.FirstName)
             {
-                Token = new JwtSecurityTokenHandler().WriteToken(token),
+                AccessToken = new JwtSecurityTokenHandler().WriteToken(token),
                 Expiration = expiration
             };
+
+            _userRepository.SaveToken(user, tokeUser.AccessToken, tokeUser.Expiration);
+
+            return tokeUser;
         }
     }
 }
